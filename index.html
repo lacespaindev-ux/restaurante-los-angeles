@@ -6,11 +6,11 @@
 <title>Restaurante Los Ángeles · Cocina peruana y española en Collado Villalba</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="Restaurante Los Ángeles, cocina peruana y española en Collado Villalba (C/ Ignacio González Serrano, 21). Desayunos, comidas, platos para llevar y reservas por WhatsApp.">
-<meta name="theme-color" content="#0f1a1b">
+<meta name="theme-color" content="#111111">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2710%27 fill=%27%23fff%27/%3E%3Crect x=%2711%27 y=%2711%27 width=%2742%27 height=%2742%27 fill=%27none%27 stroke=%27%23151515%27 stroke-width=%273%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 font-size=%2726%27 fill=%27%23151515%27%3ELA%3C/text%3E%3C/svg%3E" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"Restaurante Los Ángeles","servesCuisine":["Peruana","Española"],"telephone":"+34645104031","address":{"@type":"PostalAddress","streetAddress":"Calle Ignacio González Serrano, 21","postalCode":"28400","addressLocality":"Collado Villalba","addressRegion":"Madrid","addressCountry":"ES"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Wednesday","Thursday","Friday","Sunday"],"opens":"08:30","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:30","closes":"23:59"}]}
 </script>
@@ -277,6 +277,81 @@
     .carta-panel.un li{break-inside:avoid}
   }
 </style>
+<style id="tema">
+  :root{--noche:#111;--noche2:#000;--oro:#fff;--oro2:#fff;--esmeralda:#111;--esmeralda2:#000;--crema:#fff;--crema2:#f2f2f0;--carbon:#111;--suave:#6b6b6b;--rojo:#111;--radio:3px}
+  body,input,select,button,textarea{font-family:'Montserrat',system-ui,sans-serif}
+  h1,h2,h3,.logo,.nota-grande,.precio,.mn-precio,.mn-col li,.mf-precio,.carta-bloque h4,.logo small{font-family:'Montserrat',system-ui,sans-serif}
+  h2{font-weight:300;text-transform:uppercase;letter-spacing:.07em;font-size:clamp(1.7rem,5vw,2.7rem);line-height:1.15}
+  h3{font-weight:400}
+  header{background:rgba(17,17,17,.97);border-bottom:1px solid rgba(255,255,255,.14)}
+  .logo{color:#fff;font-weight:500;font-size:.92rem;letter-spacing:.24em;text-transform:uppercase}
+  .logo small{letter-spacing:.34em;font-weight:400}
+  nav.escritorio a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+  nav.escritorio a:hover{color:#fff;text-decoration:underline;text-underline-offset:7px}
+  .btn{border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-size:.76rem;font-weight:600;padding:14px 22px}
+  .btn-oro{background:#fff;color:#111;border-color:#fff}
+  .btn-oro:hover{background:#e4e4e4}
+  .btn-esmeralda{background:#111;color:#fff;border-color:#111}
+  .btn-esmeralda:hover{background:#333}
+  .etiqueta{background:#111;color:#fff;padding:7px 14px;letter-spacing:.22em;font-size:.7rem;font-weight:600;outline:1px solid #111;outline-offset:3px;margin-bottom:20px}
+  .oscuro .etiqueta,.verde .etiqueta{background:#fff;color:#111;outline-color:#fff}
+  .estado,.chip,.carta,.menu-flot,.mn-in,.rv,.insignia,.horario,.logo-card,.mapa,.foto,.plato-foto,.vista-previa,.campo input,.campo select,.mn-incl span,.carta-tab,.peruanos,.insignia .ic,.ficha .icono,.peruanos .bandera{border-radius:0}
+  .plato-foto figcaption{letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+  .chip b{color:#111}
+
+  .portada{background:#f4f4f2;color:#111;align-items:center;min-height:auto;overflow:visible;padding:112px 0 84px}
+  .hero-grid{display:grid;gap:44px;align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:80px}}
+  .estado{background:#fff;border:1px solid #111;color:#111;backdrop-filter:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+  .portada h1{font-weight:300;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(2.3rem,9vw,4.8rem);line-height:1.08;text-shadow:none;margin:28px 0 20px;color:#111}
+  .portada h1 em{display:block;font-style:normal;font-weight:500;font-size:.27em;letter-spacing:.46em;color:#6b6b6b;margin-top:18px}
+  .portada p.lead{color:#333;max-width:42ch;font-size:1.02rem}
+  .portada .btn-oro{background:#111;color:#fff;border-color:#111}
+  .portada .btn-oro:hover{background:#333}
+  .portada .btn-linea{border-color:#111;color:#111}
+  .portada .btn-linea:hover{background:#111;color:#fff}
+  .datos-rapidos{color:#111;font-size:.84rem;letter-spacing:.04em}
+  .datos-rapidos span::before{content:"";display:inline-block;width:16px;height:1px;background:#111;margin-right:10px;vertical-align:middle;color:inherit}
+  .hero-der{position:relative}
+  .hero-foto{aspect-ratio:4/5;margin:10px;outline:1px solid #111;outline-offset:10px;background:#ddd;overflow:hidden}
+  .hero-foto img{width:100%;height:100%;object-fit:cover}
+  .menu-flot{position:relative;margin:-70px 18px 0 auto;max-width:290px;width:calc(100% - 36px);padding:22px 22px 20px;background:#fff;border:1px solid #111;box-shadow:0 22px 40px -24px rgba(0,0,0,.55);animation:none;color:#111}
+  .menu-flot:hover{transform:none;background:#fafafa}
+  .menu-flot::before{inset:6px;border:1px solid #111;border-radius:0;opacity:.22}
+  @media(min-width:900px){.menu-flot{position:absolute;left:-44px;right:auto;bottom:-34px;width:270px;margin:0}}
+  .mf-eti{letter-spacing:.24em;font-size:.66rem;color:#111}
+  .mf-precio b{font-weight:300;font-size:4rem}
+  .mf-precio i{color:#111;font-weight:300}
+  .mf-btn{border-radius:0;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;background:#111}
+
+  .mn-in{border-radius:0}
+  .mn-in::before{border:1px solid #111;border-radius:0;opacity:.3}
+  .mn-eti{letter-spacing:.26em;color:#111}
+  .mn-precio b{font-weight:300;font-size:5rem}
+  .mn-precio span{color:#111;font-weight:300}
+  .mn-col h4{letter-spacing:.26em;color:#111}
+  .mn-col h4::before,.mn-col h4::after{background:rgba(17,17,17,.25)}
+  .mn-col li{font-weight:400;font-size:1.12rem;line-height:1.3;padding:8px 0}
+  @media(min-width:760px){.mn-col+.mn-col{border-left:1px solid rgba(17,17,17,.2)}}
+  .mn-incl span{background:#111;letter-spacing:.06em}
+
+  .carta{border-radius:0}
+  .carta h3{font-weight:300;text-transform:uppercase;letter-spacing:.12em;font-size:1.5rem;color:#fff}
+  .carta-bloque h4{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:#fff}
+  .carta-bloque li b{font-weight:600}
+  .carta-tab{letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
+  .carta-tab.on{background:#fff;border-color:#fff;color:#111}
+  .peruanos{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.3)}
+
+  .estrellas,.reseña .estrellas,.rv .estrellas{color:#f4b400}
+  .nota-grande{font-weight:300}
+  .rv{border-radius:0;box-shadow:none;border:1px solid rgba(17,17,17,.16)}
+  .dotsn i.on{background:#111}
+  .arrows button{border-radius:0;border-color:#111}
+  .horario .hoy{background:#ececea}
+  .menu-bloque h4{color:#111}
+  footer.pie{background:#000}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glogo" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></symbol></svg>
@@ -284,7 +359,7 @@
 <header>
   <div class="wrap barra">
     <a class="logo" href="#inicio" aria-label="Restaurante Los Ángeles, inicio">
-      <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true"><rect width="64" height="64" rx="10" fill="#fff"/><rect x="11" y="11" width="42" height="42" fill="none" stroke="#151515" stroke-width="3"/><text x="32" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#151515">LA</text></svg>
+      <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true"><rect x=".75" y=".75" width="62.5" height="62.5" fill="#111" stroke="#fff" stroke-width="1.5"/><rect x="9" y="9" width="46" height="46" fill="none" stroke="#fff" stroke-width="1"/><text x="32" y="43" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="200" font-size="28" fill="#fff">LA</text></svg>
       <span>Los Ángeles<small>Restaurante</small></span>
     </a>
     <nav class="escritorio" aria-label="Principal">
@@ -314,7 +389,7 @@
 
 <main>
 <section class="portada" id="inicio">
-  <div class="wrap">
+  <div class="wrap hero-grid"><div class="hero-txt">
     <span class="estado" id="estado"><i class="punto"></i><span id="estado-texto">Comprobando horario…</span></span>
     <h1>Los Ángeles<br><em>cocina peruana</em></h1>
     <p class="lead">Ceviche, lomo saltado y cocina de casa en el centro de Collado Villalba. Desayunos, comidas y platos para llevar.</p>
@@ -327,7 +402,7 @@
       <span>Desayunos y comidas</span>
       <span>Platos para llevar</span>
     </div>
-    <a class="menu-flot" href="#menu" aria-label="Ver el menú de la semana"><span class="mf-eti">Menú de la semana</span><span class="mf-precio"><b>12</b><i>€</i></span><span class="mf-txt">Primero, segundo y postre<br>con bebida incluida</span><span class="mf-dias">Lunes a viernes</span><span class="mf-btn">Ver el menú <em>→</em></span></a>
+    </div><div class="hero-der"><figure class="hero-foto"><img src="lace_la_10.jpg" alt="Ceviche con maíz, cancha y camote"></figure><a class="menu-flot" href="#menu" aria-label="Ver el menú de la semana"><span class="mf-eti">Menú de la semana</span><span class="mf-precio"><b>12</b><i>€</i></span><span class="mf-txt">Primero, segundo y postre<br>con bebida incluida</span><span class="mf-dias">Lunes a viernes</span><span class="mf-btn">Ver el menú <em>→</em></span></a></div>
   </div>
 </section>
 
@@ -580,7 +655,7 @@
     {n:"Cliente de Google",d:"Noviembre 2026",t:"Comida muy elaborada y muy bien presentada, la dueña muy atenta y muy amable con nosotros."},
     {n:"Carmen G.",d:"Noviembre 2026",t:"Entré por casualidad y mi sorpresa fue encontrarme a Noelia, un cielo."}
   ];
-  var cols=['#0d3b3f','#d93a2b','#b8860b','#3b5b8a','#2f7d4f'];
+  var cols=['#111','#4a4a4a','#777','#2b2b2b','#5e5e5e'];
   var tk=document.getElementById('rvTrack');
   if(tk){
     tk.innerHTML=RV.map(function(r,i){return '<article class="rv"><div class="rv-top"><span class="av" style="background:'+cols[i%cols.length]+'">'+r.n.trim().charAt(0).toUpperCase()+'</span><div><strong>'+r.n+'</strong><small>'+r.d+'</small></div><svg class="g-logo"><use href="#glogo"/></svg></div><span class="estrellas" aria-label="5 de 5 estrellas">★★★★★</span><p>'+r.t+'</p></article>';}).join('');
