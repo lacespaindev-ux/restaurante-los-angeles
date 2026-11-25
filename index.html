@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurante Los Ángeles · Collado Villalba — Propuesta de web de Lace</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Cocina peruana y de casa en Collado Villalba. Mira la carta, reserva mesa o pide para llevar por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Restaurante Los Ángeles","servesCuisine":["Peruana","Española"],"telephone":"+34645104031","address":{"@type":"PostalAddress","streetAddress":"Calle Ignacio González Serrano, 21","addressLocality":"Collado Villalba","addressRegion":"Madrid","addressCountry":"ES"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Wednesday","Thursday","Friday","Sunday"],"opens":"08:30","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:30","closes":"23:59"}]}
+</script>
+<style>
+:root{
+  --mar:#0D3B3F; --tinta:#0A2325; --aji:#F5A300; --rocoto:#D93A2B; --lima:#A8CF3A; --sal:#F3F6F1; --linea:#cfd9d3; --blanco:#fff;
+  --f-display:'Bricolage Grotesque',system-ui,sans-serif; --f-body:'Figtree',system-ui,sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;font-family:var(--f-body);color:var(--tinta);background:var(--sal);line-height:1.55;font-size:17px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--rocoto);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ribbon */
+.ribbon{background:var(--tinta);color:#dfeee9;font-size:14px;padding:8px 20px;display:flex;gap:12px;align-items:center;justify-content:center;text-align:center}
+.ribbon button{background:none;border:1px solid #4d6b68;color:#dfeee9;border-radius:999px;padding:2px 10px;font-size:13px}
+
+/* header */
+header.top{position:sticky;top:0;z-index:30;background:rgba(243,246,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:68px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.brand svg{width:30px;height:30px}
+nav.main{display:flex;gap:18px;margin-left:auto}
+nav.main a{text-decoration:none;font-weight:500;padding:6px 2px}
+nav.main a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--aji)}
+.top .tools{display:flex;gap:10px;align-items:center}
+.chip-open{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--blanco);border:1px solid var(--linea);white-space:nowrap}
+.dot{width:10px;height:10px;border-radius:50%;background:#999}
+.chip-open.on .dot{background:#2faa5a;box-shadow:0 0 0 4px rgba(47,170,90,.2)}
+.chip-open.off .dot{background:var(--rocoto)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-weight:700;text-decoration:none;font-size:16px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:var(--rocoto);color:#fff}
+.btn.sec{background:var(--mar);color:#fff}
+.btn.ghost{background:transparent;border:2px solid var(--mar);color:var(--mar)}
+.lang,.cartbtn{background:var(--blanco);border:1px solid var(--linea);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px}
+.cartbtn{display:inline-flex;gap:8px;align-items:center}
+.cartbtn b{background:var(--rocoto);color:#fff;border-radius:999px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:12px}
+@media(max-width:860px){nav.main{display:none}.top .tools{margin-left:auto}.chip-open{display:none}}
+
+/* hero */
+.hero{background:var(--mar);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding-top:64px;padding-bottom:84px;align-items:start}
+.hero h1{font-size:clamp(40px,6.2vw,84px);font-weight:800;letter-spacing:-.02em}
+.hero h1 .y{color:var(--aji)}
+.hero p.lead{font-size:20px;max-width:34ch;color:#d4e6e1;margin:22px 0 28px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .badges{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap;font-size:14px;color:#cfe5df}
+.hero .badges span{border:1px solid #2f6a6d;border-radius:999px;padding:5px 12px}
+.step-band{position:absolute;left:0;right:0;bottom:0;height:26px;background-repeat:repeat-x;background-size:52px 26px}
+.card-res{background:var(--aji);color:var(--tinta);border-radius:var(--r);padding:26px;box-shadow:0 18px 0 -8px rgba(0,0,0,.18)}
+.card-res h2{font-size:30px;margin-bottom:4px}
+.card-res small{display:block;margin-bottom:16px;font-weight:500}
+.fld{display:block;margin-bottom:12px}
+.fld>span{display:block;font-weight:700;font-size:14px;margin-bottom:4px}
+.fld input,.fld select,.fld textarea{width:100%;padding:11px 12px;border:2px solid transparent;border-radius:10px;background:#fff;font:inherit;color:var(--tinta)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--mar);outline:none}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stepper{display:flex;align-items:center;background:#fff;border-radius:10px;overflow:hidden}
+.stepper button{width:44px;height:44px;border:0;background:#fff;font-size:22px;font-weight:700}
+.stepper button:hover{background:#f1f1f1}
+.stepper output{flex:1;text-align:center;font-weight:700}
+.note-closed{background:#fff3d6;border-left:4px solid var(--rocoto);padding:8px 10px;border-radius:6px;font-size:14px;margin-bottom:12px;display:none}
+.card-res .btn{width:100%}
+.card-res .fine{font-size:13px;margin:10px 0 0;opacity:.85}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-top:40px}}
+
+section{padding:72px 0}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.sec-h h2{font-size:clamp(32px,4.6vw,52px);font-weight:800;letter-spacing:-.015em}
+.sec-h p{margin:0;max-width:44ch;color:#44605e}
+
+/* carta */
+.sample-note{background:#fff;border:1px dashed var(--rocoto);color:#7a2118;border-radius:10px;padding:10px 14px;font-size:14px;margin-bottom:18px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.search{flex:1;min-width:200px}
+.search input{width:100%;padding:12px 14px;border:2px solid var(--linea);border-radius:999px;font:inherit;background:#fff}
+.search input:focus{border-color:var(--mar);outline:none}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tab{border:2px solid var(--mar);background:transparent;color:var(--mar);border-radius:999px;padding:8px 16px;font-weight:700}
+.tab[aria-pressed="true"]{background:var(--mar);color:#fff}
+.diet{display:flex;gap:8px}
+.dchip{border:2px solid var(--linea);background:#fff;border-radius:999px;padding:6px 12px;font-size:14px;font-weight:500}
+.dchip[aria-pressed="true"]{border-color:var(--rocoto);background:#fff0ee}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.dish{background:#fff;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--linea)}
+.ph{aspect-ratio:16/9;display:grid;place-items:center;color:#fff;position:relative}
+.ph svg{width:62%;height:62%;opacity:.9}
+.ph em{position:absolute;left:10px;bottom:8px;font-style:normal;font-size:12px;background:rgba(0,0,0,.35);padding:2px 8px;border-radius:999px}
+.dish .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.dish h3{font-size:21px;font-weight:800}
+.dish p{margin:0;color:#4d6563;font-size:15px}
+.dish .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:10px}
+.price{font-family:var(--f-display);font-weight:800;font-size:22px}
+.flags{display:flex;gap:6px}
+.flag{font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;background:#eef3ef}
+.flag.hot{background:#ffe0dc;color:#9d2318}
+.flag.veg{background:#e6f3cf;color:#3e5d0a}
+.add{background:var(--mar);color:#fff;border:0;border-radius:999px;padding:8px 16px;font-weight:700}
+.qty{display:inline-flex;align-items:center;background:var(--sal);border-radius:999px}
+.qty button{width:36px;height:36px;border:0;background:none;font-size:20px;font-weight:700}
+.qty span{min-width:24px;text-align:center;font-weight:700}
+.empty{padding:34px;text-align:center;background:#fff;border-radius:var(--r);border:1px dashed var(--linea);grid-column:1/-1}
+
+/* menu dia */
+.menu-dia{background:var(--aji);border-radius:var(--r);padding:34px;display:grid;grid-template-columns:1fr 1.2fr;gap:30px;margin-top:44px}
+.menu-dia h3{font-size:clamp(28px,4vw,44px)}
+.menu-dia .big{font-family:var(--f-display);font-weight:800;font-size:58px}
+.menu-dia ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.menu-dia li{border-bottom:2px solid rgba(10,35,37,.15);padding-bottom:10px}
+.menu-dia li b{display:block;font-size:13px;font-weight:700;opacity:.7}
+@media(max-width:800px){.menu-dia{grid-template-columns:1fr}}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.gal .ph{border-radius:var(--r);aspect-ratio:auto;min-height:170px}
+.gal .ph:nth-child(1){grid-column:span 3;grid-row:span 2;min-height:352px}
+.gal .ph:nth-child(2),.gal .ph:nth-child(3){grid-column:span 3}
+.gal .ph:nth-child(n+4){grid-column:span 2}
+@media(max-width:700px){.gal{grid-template-columns:1fr 1fr}.gal .ph:nth-child(n){grid-column:span 1;grid-row:auto;min-height:150px}.gal .ph:nth-child(1){grid-column:span 2}}
+
+/* horario */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:800px){.info{grid-template-columns:1fr}}
+table.hrs{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--r);overflow:hidden}
+table.hrs td{padding:12px 16px;border-bottom:1px solid var(--linea)}
+table.hrs tr:last-child td{border-bottom:0}
+table.hrs td:last-child{text-align:right;font-weight:700}
+table.hrs tr.hoy{background:#fff3d6}
+.addr{font-size:22px;font-family:var(--f-display);font-weight:800;margin:0 0 6px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.rating{display:flex;align-items:center;gap:14px;margin-top:22px;background:#fff;padding:16px 18px;border-radius:var(--r);border:1px solid var(--linea)}
+.rating .n{font-family:var(--f-display);font-weight:800;font-size:44px}
+.stars{color:var(--aji);letter-spacing:2px;font-size:20px}
+
+/* faq */
+details{background:#fff;border:1px solid var(--linea);border-radius:12px;margin-bottom:10px;padding:0 18px}
+summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:#4d6563}
+
+footer{background:var(--tinta);color:#cfe0db;padding:44px 0 90px}
+footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap}
+footer h3{color:#fff;font-size:24px;margin-bottom:8px}
+footer a{color:#fff}
+.credit{font-size:14px;margin-top:20px;opacity:.8}
+
+/* drawer */
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:#fff;z-index:60;box-shadow:-16px 0 40px rgba(0,0,0,.25);transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{padding:18px 20px;border-bottom:1px solid var(--linea);display:flex;justify-content:space-between;align-items:center}
+.drawer h2{font-size:26px}
+.drawer .items{flex:1;overflow:auto;padding:10px 20px}
+.line{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--linea)}
+.line small{display:block;color:#5d7573}
+.drawer .foot{padding:16px 20px;border-top:1px solid var(--linea);background:var(--sal)}
+.tot{display:flex;justify-content:space-between;font-family:var(--f-display);font-weight:800;font-size:26px;margin-bottom:12px}
+.close{background:none;border:0;font-size:28px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:55;display:none}
+.scrim.on{display:block}
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;background:#25a244;color:#fff;border-radius:999px;padding:14px 20px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
+</style>
+</head>
+<body>
+
+<div class="ribbon" id="ribbon">
+  <span data-i="ribbon">Propuesta de muestra preparada por Lace · textos, carta y fotos de ejemplo</span>
+  <button id="ribbonX" aria-label="Cerrar aviso">Cerrar</button>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" id="top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0D3B3F"/><path d="M5 24h5v-5h5v-5h5v5h5v5h-0" fill="none" stroke="#F5A300" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="8" r="2.6" fill="#D93A2B"/></svg>
+      Los Ángeles
+    </a>
+    <nav class="main" aria-label="Principal">
+      <a href="#carta" data-i="nav_menu">Carta</a>
+      <a href="#reservar" data-i="nav_book">Reservar</a>
+      <a href="#galeria" data-i="nav_gal">Galería</a>
+      <a href="#donde" data-i="nav_where">Horario y dónde</a>
+    </nav>
+    <div class="tools">
+      <span class="chip-open" id="openChip" role="status"><span class="dot"></span><span id="openTxt">…</span></span>
+      <button class="lang" id="langBtn" aria-label="Cambiar idioma">EN</button>
+      <button class="cartbtn" id="cartBtn"><span data-i="cart">Pedido</span><b id="cartN">0</b></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1><span data-i="h1a">Ceviche, chaufa y cocina de casa en</span> <span class="y">Collado Villalba</span></h1>
+      <p class="lead" data-i="lead">Cocina peruana y española, hecha al momento. Reserva por WhatsApp o pide para recoger.</p>
+      <div class="cta">
+        <a class="btn pri" href="#reservar" data-i="cta1">Reservar mesa</a>
+        <a class="btn ghost" style="color:#fff;border-color:#fff" href="#carta" data-i="cta2">Ver la carta</a>
+      </div>
+      <div class="badges"><span data-i="b1">Desayunos y comidas</span><span data-i="b2">Platos para llevar</span><span data-i="b3">Reserva en 20 segundos</span></div>
+    </div>
+
+    <div class="card-res" id="reservar">
+      <h2 data-i="resT">Reserva tu mesa</h2>
+      <small data-i="resS">Se abre WhatsApp con tu reserva escrita. Solo tienes que enviarla.</small>
+      <div class="note-closed" id="closedNote"></div>
+      <label class="fld"><span data-i="fName">Nombre</span><input id="rName" autocomplete="name" placeholder="Ana"></label>
+      <div class="row2">
+        <div class="fld"><span data-i="fPeople">Personas</span>
+          <div class="stepper"><button type="button" id="pMinus" aria-label="Menos personas">−</button><output id="pOut">2</output><button type="button" id="pPlus" aria-label="Más personas">+</button></div>
+        </div>
+        <label class="fld"><span data-i="fDate">Día</span><input type="date" id="rDate"></label>
+      </div>
+      <label class="fld"><span data-i="fTime">Hora</span><select id="rTime"></select></label>
+      <label class="fld"><span data-i="fNotes">Notas (opcional)</span><textarea id="rNotes" rows="2" placeholder="Trona, terraza, alergias…"></textarea></label>
+      <a class="btn pri" id="rSend" href="#" target="_blank" rel="noopener" data-i="fSend">Reservar por WhatsApp</a>
+      <p class="fine" data-i="fFine">La reserva queda confirmada cuando el restaurante te responde.</p>
+    </div>
+  </div>
+  <div class="step-band" id="band"></div>
+</div>
+
+<section id="carta">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 data-i="menuT">La carta</h2>
+      <p data-i="menuP">Filtra por tipo, busca un plato y añade lo que quieras a tu pedido para llevar.</p>
+    </div>
+    <div class="sample-note" data-i="sample">Carta de ejemplo: nombres, descripciones y precios son orientativos y se sustituirán por los reales del restaurante.</div>
+    <div class="filters">
+      <div class="search"><input id="q" type="search" data-ph="search" placeholder="Buscar plato…" aria-label="Buscar plato"></div>
+      <div class="diet" role="group" aria-label="Filtros">
+        <button class="dchip" data-flag="veg" aria-pressed="false" data-i="dVeg">Vegetariano</button>
+        <button class="dchip" data-flag="hot" aria-pressed="false" data-i="dHot">Picante</button>
+      </div>
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Categorías"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+
+    <div class="menu-dia">
+      <div>
+        <h3 data-i="mdT">Menú del día</h3>
+        <div class="big">€ 12,50</div>
+        <p data-i="mdP">Primero, segundo, postre y bebida. De lunes a viernes al mediodía.</p>
+        <p style="font-size:13px;opacity:.75" data-i="mdN">(Ejemplo de menú; se actualiza cada día por WhatsApp.)</p>
+      </div>
+      <ul>
+        <li><b data-i="mdA">Primero a elegir</b>Ensalada mixta · Sopa criolla · Croquetas caseras</li>
+        <li><b data-i="mdB">Segundo a elegir</b>Lomo saltado · Pollo al horno con patatas · Arroz chaufa</li>
+        <li><b data-i="mdC">Postre</b>Flan casero · Fruta de temporada · Café</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" style="background:#e9efe9">
+  <div class="wrap">
+    <div class="sec-h"><h2 data-i="galT">El local y los platos</h2><p data-i="galP">Aquí irán vuestras fotos: platos, sala y terraza.</p></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section id="donde">
+  <div class="wrap info">
+    <div>
+      <div class="sec-h" style="margin-bottom:16px"><h2 data-i="hrsT">Horario</h2></div>
+      <table class="hrs" id="hrs"></table>
+      <div class="rating">
+        <div class="n">4,5</div>
+        <div><div class="stars" aria-label="4,5 de 5">★★★★★</div><small data-i="ratingS">64 opiniones en Google Maps</small></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-h" style="margin-bottom:16px"><h2 data-i="whT">Dónde estamos</h2></div>
+      <p class="addr">Calle Ignacio González Serrano, 21</p>
+      <p style="margin:0">28400 Collado Villalba, Madrid</p>
+      <div class="actions">
+        <a class="btn sec" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Los+%C3%81ngeles+Calle+Ignacio+Gonz%C3%A1lez+Serrano+21+Collado+Villalba" data-i="how">Cómo llegar</a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/34645104031" data-i="wa">Escribir por WhatsApp</a>
+      </div>
+      <p style="margin:0"><b data-i="tel">Teléfono:</b> 645 10 40 31</p>
+      <h3 style="font-size:28px;margin:34px 0 14px" data-i="faqT">Preguntas frecuentes</h3>
+      <details><summary data-i="q1">¿Puedo reservar para un grupo?</summary><p data-i="a1">Sí. Indica el número de personas en el formulario y añade en notas si es una celebración.</p></details>
+      <details><summary data-i="q2">¿Puedo pedir para llevar?</summary><p data-i="a2">Sí. Añade los platos a tu pedido, pulsa «Enviar pedido» y te contestamos con la hora de recogida.</p></details>
+      <details><summary data-i="q3">¿Hay opciones vegetarianas?</summary><p data-i="a3">En la carta marcamos los platos vegetarianos y los picantes para que los encuentres rápido.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><h3>Restaurante Los Ángeles</h3>Calle Ignacio González Serrano, 21 · Collado Villalba<br>WhatsApp: <a href="https://wa.me/34645104031" target="_blank" rel="noopener">645 10 40 31</a></div>
+    <div class="credit" data-i="credit">Propuesta de web creada por Lace · lacedev.com</div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" target="_blank" rel="noopener" href="https://wa.me/34645104031">WhatsApp</a>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Pedido para llevar">
+  <header><h2 data-i="ordT">Pedido para llevar</h2><button class="close" id="closeCart" aria-label="Cerrar">×</button></header>
+  <div class="items" id="items"></div>
+  <div class="foot">
+    <label class="fld"><span data-i="oName">Nombre</span><input id="oName" autocomplete="name"></label>
+    <label class="fld"><span data-i="oTime">¿A qué hora recoges?</span><input id="oTime" type="time"></label>
+    <div class="tot"><span>Total</span><span id="total">0,00 €</span></div>
+    <a class="btn pri" style="width:100%" id="oSend" href="#" target="_blank" rel="noopener" data-i="oSend">Enviar pedido por WhatsApp</a>
+  </div>
+</aside>
+
+<script>
+(function(){
+var PHONE='34645104031';
+var lang='es';
+var T={
+ es:{ribbon:'Propuesta de muestra preparada por Lace · textos, carta y fotos de ejemplo',nav_menu:'Carta',nav_book:'Reservar',nav_gal:'Galería',nav_where:'Horario y dónde',cart:'Pedido',
+  h1a:'Ceviche, chaufa y cocina de casa en',lead:'Cocina peruana y española, hecha al momento. Reserva por WhatsApp o pide para recoger.',cta1:'Reservar mesa',cta2:'Ver la carta',b1:'Desayunos y comidas',b2:'Platos para llevar',b3:'Reserva en 20 segundos',
+  resT:'Reserva tu mesa',resS:'Se abre WhatsApp con tu reserva escrita. Solo tienes que enviarla.',fName:'Nombre',fPeople:'Personas',fDate:'Día',fTime:'Hora',fNotes:'Notas (opcional)',fSend:'Reservar por WhatsApp',fFine:'La reserva queda confirmada cuando el restaurante te responde.',
+  menuT:'La carta',menuP:'Filtra por tipo, busca un plato y añade lo que quieras a tu pedido para llevar.',sample:'Carta de ejemplo: nombres, descripciones y precios son orientativos y se sustituirán por los reales del restaurante.',search:'Buscar plato…',dVeg:'Vegetariano',dHot:'Picante',
+  mdT:'Menú del día',mdP:'Primero, segundo, postre y bebida. De lunes a viernes al mediodía.',mdN:'(Ejemplo de menú; se actualiza cada día por WhatsApp.)',mdA:'Primero a elegir',mdB:'Segundo a elegir',mdC:'Postre',
+  galT:'El local y los platos',galP:'Aquí irán vuestras fotos: platos, sala y terraza.',hrsT:'Horario',ratingS:'64 opiniones en Google Maps',whT:'Dónde estamos',how:'Cómo llegar',wa:'Escribir por WhatsApp',tel:'Teléfono:',
+  faqT:'Preguntas frecuentes',q1:'¿Puedo reservar para un grupo?',a1:'Sí. Indica el número de personas en el formulario y añade en notas si es una celebración.',q2:'¿Puedo pedir para llevar?',a2:'Sí. Añade los platos a tu pedido, pulsa «Enviar pedido» y te contestamos con la hora de recogida.',q3:'¿Hay opciones vegetarianas?',a3:'En la carta marcamos los platos vegetarianos y los picantes para que los encuentres rápido.',
+  credit:'Propuesta de web creada por Lace · lacedev.com',ordT:'Pedido para llevar',oName:'Nombre',oTime:'¿A qué hora recoges?',oSend:'Enviar pedido por WhatsApp',
+  open:'Abierto ahora · cierra a las ',closed:'Cerrado · abre ',today:'hoy a las ',tomorrow:'mañana a las ',closedDay:'Ese día el restaurante está cerrado. Elige otro día.',
+  add:'Añadir',all:'Todo',none:'No hay platos con ese filtro. Prueba con otra categoría o quita el filtro.',emptyCart:'Todavía no has añadido nada. Elige platos en la carta.',photo:'Tu foto aquí',
+  days:['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],closedTxt:'Cerrado'},
+ en:{ribbon:'Sample proposal prepared by Lace · placeholder texts, menu and photos',nav_menu:'Menu',nav_book:'Book',nav_gal:'Gallery',nav_where:'Hours & location',cart:'Order',
+  h1a:'Ceviche, chaufa and home cooking in',lead:'Peruvian and Spanish food, made to order. Book on WhatsApp or order to pick up.',cta1:'Book a table',cta2:'See the menu',b1:'Breakfast and lunch',b2:'Takeaway dishes',b3:'Book in 20 seconds',
+  resT:'Book your table',resS:'WhatsApp opens with your booking already written. Just send it.',fName:'Name',fPeople:'Guests',fDate:'Day',fTime:'Time',fNotes:'Notes (optional)',fSend:'Book on WhatsApp',fFine:'Your booking is confirmed once the restaurant replies.',
+  menuT:'The menu',menuP:'Filter by type, search a dish and add what you want to your takeaway order.',sample:'Sample menu: names, descriptions and prices are indicative and will be replaced with the restaurant\'s real ones.',search:'Search a dish…',dVeg:'Vegetarian',dHot:'Spicy',
+  mdT:'Set menu',mdP:'Starter, main, dessert and drink. Monday to Friday at lunchtime.',mdN:'(Sample menu; updated daily over WhatsApp.)',mdA:'Starter, your pick',mdB:'Main, your pick',mdC:'Dessert',
+  galT:'The place and the food',galP:'Your photos will go here: dishes, dining room and terrace.',hrsT:'Opening hours',ratingS:'64 reviews on Google Maps',whT:'Find us',how:'Get directions',wa:'Message on WhatsApp',tel:'Phone:',
+  faqT:'FAQ',q1:'Can I book for a group?',a1:'Yes. Set the number of guests in the form and add a note if it is a celebration.',q2:'Can I order takeaway?',a2:'Yes. Add dishes to your order, press "Send order" and we will reply with the pickup time.',q3:'Are there vegetarian options?',a3:'The menu marks vegetarian and spicy dishes so you can find them quickly.',
+  credit:'Website proposal by Lace · lacedev.com',ordT:'Takeaway order',oName:'Name',oTime:'Pickup time',oSend:'Send order on WhatsApp',
+  open:'Open now · closes at ',closed:'Closed · opens ',today:'today at ',tomorrow:'tomorrow at ',closedDay:'The restaurant is closed that day. Pick another day.',
+  add:'Add',all:'All',none:'No dishes match. Try another category or clear the filter.',emptyCart:'Nothing here yet. Pick dishes from the menu.',photo:'Your photo here',
+  days:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],closedTxt:'Closed'}
+};
+function t(k){return T[lang][k]}
+
+/* horarios: [abre, cierra] en minutos; null = cerrado. 0=domingo */
+var HRS=[[510,1380],[510,1380],null,[480,1380],[510,1380],[510,1380],[510,1439]];
+function hm(m){var h=Math.floor(m/60),mm=m%60;return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm}
+function nowMadrid(){
+  var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  var o={};p.forEach(function(x){o[x.type]=x.value});
+  var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  return {d:map[o.weekday],m:parseInt(o.hour,10)*60+parseInt(o.minute,10)};
+}
+function renderOpen(){
+  var n=nowMadrid(),h=HRS[n.d],chip=document.getElementById('openChip'),txt=document.getElementById('openTxt');
+  if(h&&n.m>=h[0]&&n.m<h[1]){chip.className='chip-open on';txt.textContent=t('open')+hm(h[1])}
+  else{
+    chip.className='chip-open off';
+    if(h&&n.m<h[0]){txt.textContent=t('closed')+t('today')+hm(h[0])}
+    else{var d=(n.d+1)%7,k=0;while(!HRS[d]&&k<7){d=(d+1)%7;k++}
+      txt.textContent=t('closed')+(d===(n.d+1)%7?t('tomorrow'):t('days')[d].toLowerCase()+' ')+hm(HRS[d][0])}
+  }
+}
+function renderHours(){
+  var n=nowMadrid(),rows='',order=[1,2,3,4,5,6,0];
+  order.forEach(function(d){var h=HRS[d];rows+='<tr'+(d===n.d?' class="hoy"':'')+'><td>'+t('days')[d]+'</td><td>'+(h?hm(h[0])+' – '+(h[1]>=1439?'00:00':hm(h[1])):t('closedTxt'))+'</td></tr>'});
+  document.getElementById('hrs').innerHTML=rows;
+}
+
+/* carta de ejemplo */
+var CATS=[['ent',{es:'Entrantes',en:'Starters'}],['cev',{es:'Ceviches',en:'Ceviches'}],['pla',{es:'Platos',en:'Mains'}],['des',{es:'Desayunos',en:'Breakfast'}],['pos',{es:'Postres y bebidas',en:'Desserts & drinks'}]];
+var DISH=[
+ {id:'1',c:'ent',es:'Papa a la huancaína',en:'Papa a la huancaína',de:'Patata cocida con crema suave de ají amarillo y queso.',dn:'Boiled potato with a mild ají amarillo and cheese sauce.',p:7.5,f:['veg'],col:'#F5A300'},
+ {id:'2',c:'ent',es:'Anticuchos',en:'Anticuchos',de:'Brochetas a la parrilla con salsa de ají y patata.',dn:'Grilled skewers with chili sauce and potato.',p:9.5,f:['hot'],col:'#D93A2B'},
+ {id:'3',c:'ent',es:'Croquetas caseras',en:'Homemade croquettes',de:'Seis croquetas de jamón, crujientes por fuera.',dn:'Six crispy ham croquettes.',p:8,f:[],col:'#0D3B3F'},
+ {id:'4',c:'cev',es:'Ceviche clásico',en:'Classic ceviche',de:'Pescado del día en limón, cebolla roja, cilantro y camote.',dn:'Fish of the day in lime, red onion, cilantro and sweet potato.',p:14,f:['hot'],col:'#A8CF3A'},
+ {id:'5',c:'cev',es:'Ceviche mixto',en:'Mixed ceviche',de:'Pescado y marisco con leche de tigre y maíz tostado.',dn:'Fish and seafood with tiger\'s milk and toasted corn.',p:16.5,f:['hot'],col:'#2f8f83'},
+ {id:'6',c:'pla',es:'Lomo saltado',en:'Lomo saltado',de:'Ternera salteada con cebolla, tomate, patatas fritas y arroz.',dn:'Stir-fried beef with onion, tomato, fries and rice.',p:13.5,f:[],col:'#D93A2B'},
+ {id:'7',c:'pla',es:'Arroz chaufa',en:'Chaufa rice',de:'Arroz frito al wok con huevo, cebolleta y pollo.',dn:'Wok-fried rice with egg, spring onion and chicken.',p:11,f:[],col:'#F5A300'},
+ {id:'8',c:'pla',es:'Ají de gallina',en:'Ají de gallina',de:'Pollo deshilachado en crema de ají amarillo, con arroz.',dn:'Shredded chicken in ají amarillo cream, with rice.',p:12.5,f:['hot'],col:'#F5A300'},
+ {id:'9',c:'pla',es:'Plato combinado',en:'Combo plate',de:'Pollo o ternera con patatas, ensalada y huevo.',dn:'Chicken or beef with fries, salad and egg.',p:10.5,f:[],col:'#0D3B3F'},
+ {id:'10',c:'des',es:'Tostada con tomate',en:'Tomato toast',de:'Pan crujiente con tomate rallado y aceite de oliva.',dn:'Crispy bread with grated tomato and olive oil.',p:3.5,f:['veg'],col:'#D93A2B'},
+ {id:'11',c:'des',es:'Bocadillo de calamares',en:'Calamari sandwich',de:'Calamares fritos en barra de pan recién hecha.',dn:'Fried calamari in a fresh baguette.',p:8.5,f:[],col:'#0D3B3F'},
+ {id:'12',c:'pos',es:'Tres leches',en:'Tres leches cake',de:'Bizcocho empapado en tres leches con canela.',dn:'Sponge soaked in three milks with cinnamon.',p:5.5,f:['veg'],col:'#F5A300'},
+ {id:'13',c:'pos',es:'Chicha morada',en:'Chicha morada',de:'Bebida de maíz morado con piña y limón.',dn:'Purple corn drink with pineapple and lime.',p:3.5,f:['veg'],col:'#6b2d6f'}
+];
+var cat='all',flags={},query='',cart={};
+function eur(n){return n.toFixed(2).replace('.',',')+' €'}
+function icon(c){return '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="34" r="22" fill="none" stroke="#fff" stroke-width="3"/><circle cx="32" cy="34" r="14" fill="none" stroke="#fff" stroke-width="3" opacity=".6"/><path d="M12 12v14M18 12v14M15 12v40M48 12c-6 4-6 14 0 18v22" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>'}
+function renderTabs(){
+  var h='<button class="tab" aria-pressed="'+(cat==='all')+'" data-c="all">'+t('all')+'</button>';
+  CATS.forEach(function(c){h+='<button class="tab" aria-pressed="'+(cat===c[0])+'" data-c="'+c[0]+'">'+c[1][lang]+'</button>'});
+  document.getElementById('tabs').innerHTML=h;
+}
+function renderGrid(){
+  var q=query.trim().toLowerCase(),out='';
+  DISH.forEach(function(d){
+    if(cat!=='all'&&d.c!==cat)return;
+    for(var f in flags){if(flags[f]&&d.f.indexOf(f)<0)return}
+    var name=d[lang],desc=lang==='es'?d.de:d.dn;
+    if(q&&(name+' '+desc).toLowerCase().indexOf(q)<0)return;
+    var n=cart[d.id]||0;
+    var fl=d.f.map(function(f){return '<span class="flag '+f+'">'+(f==='hot'?t('dHot'):t('dVeg'))+'</span>'}).join('');
+    out+='<article class="dish"><div class="ph" style="background:'+d.col+'">'+icon()+'<em>'+t('photo')+'</em></div><div class="body"><h3>'+name+'</h3><p>'+desc+'</p><div class="flags">'+fl+'</div><div class="foot"><span class="price">'+eur(d.p)+'</span>'+
+      (n?'<span class="qty"><button data-m="'+d.id+'" aria-label="−">−</button><span>'+n+'</span><button data-p="'+d.id+'" aria-label="+">+</button></span>':'<button class="add" data-p="'+d.id+'">'+t('add')+'</button>')+'</div></div></article>';
+  });
+  document.getElementById('grid').innerHTML=out||'<div class="empty">'+t('none')+'</div>';
+}
+function cartLines(){var a=[];DISH.forEach(function(d){if(cart[d.id])a.push({d:d,n:cart[d.id]})});return a}
+function renderCart(){
+  var L=cartLines(),tot=0,cnt=0,h='';
+  L.forEach(function(x){tot+=x.d.p*x.n;cnt+=x.n;h+='<div class="line"><div><b>'+x.d[lang]+'</b><small>'+eur(x.d.p)+'</small></div><span class="qty"><button data-m="'+x.d.id+'" aria-label="−">−</button><span>'+x.n+'</span><button data-p="'+x.d.id+'" aria-label="+">+</button></span></div>'});
+  document.getElementById('items').innerHTML=h||'<p class="empty" style="margin-top:14px">'+t('emptyCart')+'</p>';
+  document.getElementById('total').textContent=eur(tot);
+  document.getElementById('cartN').textContent=cnt;
+  var msg='Hola, quiero hacer un pedido para recoger:\n';
+  L.forEach(function(x){msg+='• '+x.n+' x '+x.d.es+'\n'});
+  msg+='Total: '+eur(tot);
+  var nm=document.getElementById('oName').value.trim(),tm=document.getElementById('oTime').value;
+  if(nm)msg+='\nNombre: '+nm;
+  if(tm)msg+='\nRecojo a las '+tm;
+  var a=document.getElementById('oSend');
+  a.href=cnt?'https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg):'#';
+  a.style.opacity=cnt?1:.5;
+  renderGrid();
+}
+function change(id,delta){cart[id]=Math.max(0,(cart[id]||0)+delta);if(!cart[id])delete cart[id];renderCart()}
+
+/* reserva */
+var people=2;
+function slots(dow){
+  var h=HRS[dow];if(!h)return [];
+  var out=[],m;
+  for(m=13*60;m<=15*60+30;m+=30)out.push(m);
+  for(m=20*60;m<=22*60+30;m+=30)out.push(m);
+  return out.filter(function(m){return m>=h[0]&&m<=h[1]-30});
+}
+function dowOf(iso){var p=iso.split('-');return new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay()}
+function updateRes(){
+  var d=document.getElementById('rDate').value,sel=document.getElementById('rTime'),note=document.getElementById('closedNote'),btn=document.getElementById('rSend');
+  var dow=d?dowOf(d):null,list=dow===null?[]:slots(dow),cur=sel.value;
+  if(d&&!HRS[dow]){note.style.display='block';note.textContent=t('closedDay')}else note.style.display='none';
+  sel.innerHTML=list.map(function(m){return '<option value="'+hm(m)+'"'+(hm(m)===cur?' selected':'')+'>'+hm(m)+'</option>'}).join('');
+  document.getElementById('pOut').textContent=people;
+  var ok=d&&list.length&&document.getElementById('rName').value.trim();
+  var msg='Hola, quiero reservar mesa para '+people+' persona'+(people>1?'s':'')+' el '+(d?d.split('-').reverse().join('/'):'')+' a las '+sel.value+'. A nombre de '+document.getElementById('rName').value.trim()+'.';
+  var nt=document.getElementById('rNotes').value.trim();if(nt)msg+=' Notas: '+nt;
+  btn.href=ok?'https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg):'#';
+  btn.style.opacity=ok?1:.55;
+}
+function renderGallery(){
+  var cols=['#0D3B3F','#F5A300','#D93A2B','#2f8f83','#6b2d6f','#A8CF3A'],h='';
+  cols.forEach(function(c){h+='<div class="ph" style="background:'+c+'">'+icon()+'<em>'+t('photo')+'</em></div>'});
+  document.getElementById('gal').innerHTML=h;
+}
+function band(){
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" width="52" height="26" viewBox="0 0 52 26"><path d="M0 26V18h8v-8h8V2h20v8h8v8h8v8z" fill="#F3F6F1"/><path d="M0 26V18h8v-8h8V2h20v8h8v8h8v8z" fill="none"/></svg>';
+  document.getElementById('band').style.backgroundImage='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")';
+}
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(function(e){var k=e.getAttribute('data-i');if(T[lang][k]!==undefined)e.textContent=T[lang][k]});
+  document.querySelectorAll('[data-ph]').forEach(function(e){e.placeholder=t(e.getAttribute('data-ph'))});
+  document.getElementById('langBtn').textContent=lang==='es'?'EN':'ES';
+  renderOpen();renderHours();renderTabs();renderCart();renderGallery();updateRes();
+}
+
+/* eventos */
+document.getElementById('langBtn').onclick=function(){lang=lang==='es'?'en':'es';applyLang()};
+document.getElementById('ribbonX').onclick=function(){document.getElementById('ribbon').style.display='none'};
+document.getElementById('tabs').onclick=function(e){var b=e.target.closest('.tab');if(!b)return;cat=b.dataset.c;renderTabs();renderGrid()};
+document.getElementById('q').oninput=function(e){query=e.target.value;renderGrid()};
+document.querySelectorAll('.dchip').forEach(function(b){b.onclick=function(){var f=b.dataset.flag;flags[f]=!flags[f];b.setAttribute('aria-pressed',!!flags[f]);renderGrid()}});
+function cartClick(e){var p=e.target.closest('[data-p]'),m=e.target.closest('[data-m]');if(p)change(p.dataset.p,1);else if(m)change(m.dataset.m,-1)}
+document.getElementById('grid').onclick=cartClick;
+document.getElementById('items').onclick=cartClick;
+function openCart(o){document.getElementById('drawer').classList.toggle('open',o);document.getElementById('scrim').classList.toggle('on',o)}
+document.getElementById('cartBtn').onclick=function(){openCart(true)};
+document.getElementById('closeCart').onclick=function(){openCart(false)};
+document.getElementById('scrim').onclick=function(){openCart(false)};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')openCart(false)});
+['oName','oTime'].forEach(function(id){document.getElementById(id).oninput=renderCart});
+document.getElementById('oSend').onclick=function(e){if(this.getAttribute('href')==='#')e.preventDefault()};
+document.getElementById('pMinus').onclick=function(){people=Math.max(1,people-1);updateRes()};
+document.getElementById('pPlus').onclick=function(){people=Math.min(20,people+1);updateRes()};
+['rName','rDate','rTime','rNotes'].forEach(function(id){document.getElementById(id).oninput=updateRes;document.getElementById(id).onchange=updateRes});
+document.getElementById('rSend').onclick=function(e){if(this.getAttribute('href')==='#')e.preventDefault()};
+
+/* fecha mínima = hoy en Madrid */
+(function(){var f=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Madrid'}).format(new Date());var i=document.getElementById('rDate');i.min=f;i.value=f}());
+band();applyLang();
+setInterval(renderOpen,60000);
+})();
+</script>
+</body>
+</html>
