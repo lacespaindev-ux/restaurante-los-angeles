@@ -245,6 +245,24 @@
   .mn-incl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:28px 0 20px}
   .mn-incl span{background:var(--esmeralda);color:#fff;font-size:.86rem;font-weight:600;padding:8px 16px;border-radius:999px}
   .mn-pie{margin-top:12px;font-size:.82rem;color:var(--suave)}
+
+  .portada .wrap{position:relative}
+  .menu-flot{display:block;margin-top:30px;max-width:340px;text-decoration:none;color:var(--carbon);background:var(--crema);border-radius:20px;padding:22px 24px 20px;text-align:center;position:relative;box-shadow:0 30px 60px -24px rgba(0,0,0,.7);animation:flot 5s ease-in-out infinite;transition:transform .2s}
+  .menu-flot::before{content:"";position:absolute;inset:7px;border:1.5px solid var(--oro);border-radius:14px;pointer-events:none;opacity:.85}
+  .menu-flot:hover{transform:translateY(-4px)}
+  .mf-eti{display:block;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--esmeralda)}
+  .mf-precio{display:inline-flex;align-items:flex-start;gap:3px;margin:6px 0 2px;font-family:'Cormorant Garamond',serif;color:var(--esmeralda);line-height:.9}
+  .mf-precio b{font-size:4.4rem;font-weight:700}
+  .mf-precio i{font-style:normal;font-size:1.8rem;font-weight:700;margin-top:6px;color:var(--oro)}
+  .mf-txt{display:block;font-size:.9rem;color:var(--carbon);line-height:1.35}
+  .mf-dias{display:block;font-size:.8rem;color:var(--suave);margin:4px 0 12px}
+  .mf-btn{display:inline-block;background:var(--esmeralda);color:#fff;font-weight:600;font-size:.88rem;padding:9px 18px;border-radius:999px}
+  .mf-btn em{font-style:normal;margin-left:4px}
+  @keyframes flot{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @media(min-width:900px){
+    .menu-flot{position:absolute;right:24px;bottom:4px;width:280px;margin:0}
+  }
+  @media(prefers-reduced-motion:reduce){.menu-flot{animation:none}}
 </style>
 </head>
 <body>
@@ -296,6 +314,7 @@
       <span>Desayunos y comidas</span>
       <span>Platos para llevar</span>
     </div>
+    <a class="menu-flot" href="#menu" aria-label="Ver el menú de la semana"><span class="mf-eti">Menú de la semana</span><span class="mf-precio"><b>12</b><i>€</i></span><span class="mf-txt">Primero, segundo y postre<br>con bebida incluida</span><span class="mf-dias">Lunes a viernes</span><span class="mf-btn">Ver el menú <em>→</em></span></a>
   </div>
 </section>
 
