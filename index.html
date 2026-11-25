@@ -183,6 +183,26 @@
   .rev{opacity:0;transform:translateY(16px);transition:opacity .6s, transform .6s}
   .rev.ver{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.estado.abierto .punto{animation:none}.plato-foto img{transition:none}}
+
+  .carta{margin-top:34px;background:var(--noche);color:#fff;border-radius:24px;padding:28px}
+  .carta h3{font-size:2rem;color:var(--oro2);margin-bottom:4px}
+  .carta .sub{color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:18px}
+  .carta-grid{display:grid;gap:26px}
+  @media(min-width:860px){.carta-grid{grid-template-columns:1fr 1fr;gap:34px}}
+  .carta-bloque h4{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--oro2);border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:6px;margin:18px 0 6px}
+  .carta-col .carta-bloque:first-child h4{margin-top:0}
+  .carta-bloque ul{list-style:none}
+  .carta-bloque li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:.97rem}
+  .carta-bloque li:last-child{border-bottom:0}
+  .carta-bloque li small{display:block;color:rgba(255,255,255,.55);font-size:.78rem;margin-top:2px}
+  .carta-bloque li b{color:var(--oro2);font-weight:600;white-space:nowrap}
+  .carta .pie-carta{margin-top:12px;font-size:.8rem;color:rgba(255,255,255,.55)}
+  .peruanos{display:flex;gap:12px;align-items:center;margin-top:24px;padding:14px 16px;border-radius:14px;background:rgba(245,163,0,.12);border:1px solid rgba(245,163,0,.35)}
+  .peruanos .bandera{flex:none;width:30px;height:20px;border-radius:3px;background:linear-gradient(90deg,#d91023 33%,#fff 33% 67%,#d91023 67%)}
+  .peruanos p{font-size:.95rem}
+  .reseña .estrellas{margin-bottom:8px;font-size:1rem}
+  .reseña footer b{color:var(--carbon)}
+  .nota-op{margin-top:14px;font-size:.8rem;color:var(--suave)}
 </style>
 </head>
 <body>
@@ -240,8 +260,8 @@
   <div class="wrap">
     <div class="rev">
       <span class="etiqueta">La cocina</span>
-      <h2>Perú en el plato, cocina de casa en la mesa</h2>
-      <p class="intro">Platos peruanos de toda la vida junto a cocina española. Para comer sin prisa, para compartir o para llevar a casa.</p>
+      <h2>Cocina de casa, con sabor a Perú</h2>
+      <p class="intro">Cocina española y mediterránea, hamburguesas caseras y, fuera de carta, platos peruanos como el lomo saltado y el ceviche.</p>
     </div>
     <div class="platos-fotos">
       <figure class="plato-foto rev"><img src="lace_la_10.jpg" alt="Ceviche con maíz, cancha y camote" loading="lazy"><figcaption>Ceviche</figcaption></figure>
@@ -258,22 +278,7 @@
       <span class="chip"><b>Hamburguesas</b></span>
       <span class="chip"><b>Postres</b> caseros</span>
     </div>
-    <div class="picoteo rev">
-      <span class="cinta">Ejemplo de carta</span>
-      <h3>Para empezar y para seguir</h3>
-      <p class="sub">Una muestra de cómo se verá vuestra carta</p>
-      <ul>
-        <li><span>Papa a la huancaína</span><b>7,50 €</b></li>
-        <li><span>Anticuchos</span><b>9,50 €</b></li>
-        <li><span>Ceviche clásico</span><b>14 €</b></li>
-        <li><span>Lomo saltado</span><b>13,50 €</b></li>
-        <li><span>Arroz chaufa</span><b>11 €</b></li>
-        <li><span>Ají de gallina</span><b>12,50 €</b></li>
-        <li><span>Tres leches</span><b>5,50 €</b></li>
-        <li><span>Chicha morada</span><b>3,50 €</b></li>
-      </ul>
-      <p class="pie-carta">Platos y precios de ejemplo. Se sustituirán por los de la carta real del restaurante.</p>
-    </div>
+    <div class="carta rev" id="carta"><h3>La carta</h3><p class="sub">Cocina de mercado, hamburguesas caseras y postres de la casa.</p><div class="carta-grid"><div class="carta-col"><div class="carta-bloque"><h4>Para picar</h4><ul><li><span>Ensalada de burrata con tomate seco y salsa pesto</span><b>14,95 €</b></li><li><span>Tomate a la plancha con queso rulo de cabra</span><b>15,40 €</b></li><li><span>Flor de alcachofa confitada</span><b>17,95 €</b></li><li><span>Patatas bravas con espuma de parmesano</span><b>9,50 €</b></li><li><span>Tenders de pollo a nuestro estilo</span><b>12,95 €</b></li><li><span>Baos de cochinita pibil</span><b>12,95 €</b></li><li><span>Calamares a la romana</span><b>13,80 €</b></li><li><span>Chorizo criollo a la plancha con salsa chimichurri y patatas</span><b>10,50 €</b></li><li><span>Jamón ibérico cortado a mano con pan de cristal y tumaca</span><b>25,90 €</b></li><li><span>Tabla de quesos</span><b>21,00 €</b></li><li><span>Torrezno de Soria con patata panadera y salsa de queso azul</span><b>15,90 €</b></li><li><span>Croquetas de carne</span><b>10,90 €</b></li><li><span>Berenjena frita crujiente con miel de caña</span><b>10,30 €</b></li></ul></div><div class="carta-bloque"><h4>Postres caseros</h4><ul><li><span>Tarta de queso<small>Con confitura de frutos rojos</small></span><b>7,50 €</b></li><li><span>Coulant<small>Con bola de helado de mango y sirope de chocolate</small></span><b>7,50 €</b></li><li><span>Sorbete de frutas</span><b>7,50 €</b></li><li><span>Trufas heladas con brandy</span><b>5,00 €</b></li><li><span>Néctar Pedro Ximénez</span><b>5,00 €</b></li><li><span>Lemon pie</span><b>6,50 €</b></li></ul></div><div class="carta-bloque"><h4>Desayunos y bollería</h4><ul><li><span>Tostada de aguacate<small>Extra aguacate 0,50 €</small></span><b>3,00 €</b></li><li><span>Tostada de salmón<small>Extra salmón 0,50 €</small></span><b>3,50 €</b></li><li><span>Tostada de atún<small>Extra atún 0,50 €</small></span><b>2,50 €</b></li><li><span>Tostada de jamón serrano<small>Extra jamón 0,50 €</small></span><b>3,30 €</b></li><li><span>Tostada de tomate<small>Extra tomate 0,50 €</small></span><b>1,90 €</b></li><li><span>Pincho de tortilla</span><b>2,50 €</b></li><li><span>Croissant vegetal</span><b>4,00 €</b></li><li><span>Croissant jamón York y queso</span><b>3,50 €</b></li><li><span>Croissant</span><b>1,75 €</b></li><li><span>Donuts de azúcar o de chocolate</span><b>1,50 €</b></li><li><span>Napolitana de chocolate o de crema</span><b>1,50 €</b></li></ul></div></div><div class="carta-col"><div class="carta-bloque"><h4>Hamburguesas</h4><ul><li><span>Hamburguesa California<small>Pan casero, 150 g de vaca madurada, rúcula, tomate, queso rulo de cabra, jamón serrano y cebolla caramelizada</small></span><b>15,00 €</b></li><li><span>Hamburguesa Los Ángeles<small>Pan casero, 150 g de vaca madurada, rúcula, tomate, bacon, queso brie y salsa LA</small></span><b>15,50 €</b></li><li><span>Hamburguesa San Francisco<small>Pan casero, 150 g de vaca madurada, tomate, rúcula, bacon, espuma de parmesano y salsa de arándanos</small></span><b>14,90 €</b></li><li><span>Hamburguesa Smash<small>Pan casero, carne doble, doble queso cheddar, tomate seco, rúcula y salsa pesto</small></span><b>16,15 €</b></li><li><span>Hamburguesa vegetariana<small>Pan casero, hamburguesa de remolacha, rulo de cabra, berenjena, tomate, rúcula, cebolla morada y mayonesa Los Ángeles</small></span><b>13,50 €</b></li></ul></div><div class="carta-bloque"><h4>Carne</h4><ul><li><span>Chuletón de Ávila con su guarnición</span><b>65,95 €</b></li></ul></div><div class="carta-bloque"><h4>Pescado</h4><ul><li><span>Fish &amp; chips de merluza y cebolla</span><b>14,95 €</b></li></ul></div><div class="carta-bloque"><h4>Para los pequeños</h4><ul><li><span>Fish &amp; chips de merluza con bebida</span><b>12,80 €</b></li><li><span>Hamburguesa con queso y patatas con bebida</span><b>12,80 €</b></li></ul></div><div class="carta-bloque"><h4>Vinos (botella)</h4><ul><li><span>Rioja Crianza CUNE</span><b>18,50 €</b></li><li><span>Rioja Joven Terraland</span><b>12,50 €</b></li><li><span>Rioja Muga</span><b>29,50 €</b></li><li><span>Rioja Reserva Marqués de Murrieta</span><b>32,50 €</b></li><li><span>Ribera del Duero Joven Monte Pinadillo</span><b>14,90 €</b></li><li><span>Ribera del Duero Roble Carramimbre</span><b>18,50 €</b></li><li><span>Ribera del Duero Crianza Emilio Moro</span><b>32,50 €</b></li><li><span>Verdejo D.O. Rueda Coso Viejo</span><b>13,50 €</b></li><li><span>D.O. Godello Marusa</span><b>19,00 €</b></li><li><span>Esencia 27</span><b>18,00 €</b></li><li><span>D.O. Cigales Rosado Sinfo</span><b>14,50 €</b></li></ul></div></div></div><div class="peruanos"><span class="bandera" aria-hidden="true"></span><p><strong>Platos peruanos, fuera de carta.</strong> Preguntad por el lomo saltado, el ceviche y los platos del día.</p></div><p class="pie-carta">Precios con IVA según la carta publicada por el restaurante. Pueden variar: confirmadlo al reservar.</p></div>
   </div>
 </section>
 
@@ -282,14 +287,14 @@
     <div class="rev">
       <span class="etiqueta">Menú del día</span>
       <h2>El menú de hoy, siempre actualizado</h2>
-      <p class="intro">De lunes a viernes al mediodía, un menú con primero, segundo, postre y bebida. Aquí lo ves antes de venir, con lo que se acaba tachado.</p>
+      <p class="intro">De lunes a viernes, menú con primero, segundo y postre. El menú cambia cada semana; este es un ejemplo del formato.</p>
     </div>
     <div class="menu-card rev">
-      <span class="cinta">Ejemplo de cómo se verá</span>
-      <div class="menu-top"><h3>Menú del día</h3><span class="precio">12,50 €</span></div>
+      <span class="cinta">Menú semanal</span>
+      <div class="menu-top"><h3>Menú del día</h3><span class="precio">12 €</span></div>
       <p class="menu-fecha" id="menu-fecha"></p>
       <div class="menu-bloque" id="menu-contenido"></div>
-      <p class="menu-pie">Incluye primero, segundo, postre y bebida. Para llevar, escríbenos por WhatsApp.</p>
+      <p class="menu-pie">Incluye bebida o copa de vino, y postre o café. De lunes a viernes. Para llevar, escríbenos por WhatsApp.</p>
     </div>
   </div>
 </section>
@@ -346,6 +351,8 @@
       <div><div class="estrellas" aria-label="4,5 de 5 estrellas">★★★★★</div><small>64 opiniones en Google Maps</small></div>
       <a class="btn btn-esmeralda" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Los+%C3%81ngeles+Calle+Ignacio+Gonz%C3%A1lez+Serrano+21+Collado+Villalba" target="_blank" rel="noopener">Leer las opiniones</a>
     </div>
+    <div class="reseñas"><article class="reseña rev"><div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div><p>“Un sitio muy bien cuidado, con un excelente trato al cliente. La comida estaba riquísima y se preocupan de cada detalle para hacerte sentir a gusto.”</p><footer><b>Nathanael S.</b><span>Hace 1 semana · Google</span></footer></article><article class="reseña rev"><div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div><p>“Comida rica y servicio de calidad. El menú del día tiene muy buena relación calidad precio.”</p><footer><b>Ana G.</b><span>Hace 4 días · Google</span></footer></article><article class="reseña rev"><div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div><p>“Lugar en el que se nota la dedicación y el cariño por lo que hacen para satisfacer al cliente.”</p><footer><b>Mónica J.</b><span>Hace 3 días · Google</span></footer></article><article class="reseña rev"><div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div><p>“Comida muy elaborada y muy bien presentada, la dueña muy atenta y muy amable con nosotros.”</p><footer><b>Cliente de Google</b><span>Hace 3 días · Google</span></footer></article><article class="reseña rev"><div class="estrellas" aria-label="5 de 5 estrellas">★★★★★</div><p>“Entré por casualidad y mi sorpresa fue encontrarme a Noelia, un cielo.”</p><footer><b>Carmen G.</b><span>Hace 6 días · Google</span></footer></article></div>
+    <p class="nota-op">Opiniones reales de Google Maps. Se muestran nombre de pila e inicial.</p>
   </div>
 </section>
 
@@ -443,9 +450,9 @@
 
   // Menú del día (ejemplo)
   var MENU={
-    "Primeros":[{n:"Ensalada mixta"},{n:"Sopa criolla"},{n:"Croquetas caseras"}],
-    "Segundos":[{n:"Lomo saltado"},{n:"Pollo al horno con patatas"},{n:"Arroz chaufa",agotado:true}],
-    "Postres":[{n:"Flan casero"},{n:"Fruta de temporada"},{n:"Café"}]
+    "Primeros":[{n:"Ensalada César"},{n:"Salmorejo"},{n:"Berenjena"}],
+    "Segundos":[{n:"Pollo al curry"},{n:"Merluza con verduras"},{n:"Chorizo criollo"}],
+    "Postres":[{n:"Tarta de queso"},{n:"Bola de helado"}]
   };
   var html='';
   Object.keys(MENU).forEach(function(k){
