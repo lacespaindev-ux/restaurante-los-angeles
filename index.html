@@ -412,6 +412,12 @@
   footer.pie .redes a{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border:1px solid rgba(255,255,255,.35);border-radius:8px;color:#fff;text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s}
   footer.pie .redes a:hover{background:#fff;color:#111}
   footer.pie .redes a:hover svg{filter:invert(1)}
+
+  footer.pie .redes{flex-wrap:nowrap;gap:10px}
+  footer.pie .redes-t{flex:0 0 auto;margin-right:2px}
+  footer.pie .redes a{flex:1 1 0;min-width:0;justify-content:center;white-space:nowrap;padding:10px 8px;gap:7px;font-size:.74rem;letter-spacing:.04em}
+  footer.pie .redes svg{flex:none;width:18px;height:18px}
+  @media(max-width:520px){footer.pie .redes{flex-wrap:wrap}footer.pie .redes-t{flex:1 1 100%}}
 </style>
 </head>
 <body>
